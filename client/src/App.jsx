@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import css from './App.css';
+// import css from './App.css';
 
 
 function UserForm() {
@@ -39,7 +39,7 @@ function UserForm() {
 
     // Send form data to the server
     const formData = { name, dob, email, phone };
-    const res = await fetch("http://localhost:5000/send", {
+    const res = await fetch("https://assingment.onrender.com/send", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
