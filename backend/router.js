@@ -1,6 +1,7 @@
 const express = require('express');
 const nodeMailer = require('nodemailer');
  const  router = new express.Router();
+require ('dotenv').config();
 
 
  router.post("/user-form", (req, res) => {
@@ -11,8 +12,8 @@ const nodeMailer = require('nodemailer');
             const transporter = nodeMailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: 'upadhyayvivek.19@gmail.com',
-                    pass: 'gqreruvpwrlxudhs',
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWORD,
         }
     });
     if (!isValidPhoneNumber(phone)) {
