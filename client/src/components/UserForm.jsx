@@ -25,7 +25,7 @@ const UserForm = () => {
       return;
     }
     const data = { name, email, phone, dob };
-    fetch('http://localhost:5000/user-form', {
+    fetch('https://assingment.onrender.com/user-form', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
