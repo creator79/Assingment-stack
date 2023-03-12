@@ -32,7 +32,7 @@ const UserForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert('Form submitted');
+        alert('Your Form is submitted');
       })
       .catch((error) => {
         console.error('Error:', error);
