@@ -17,8 +17,8 @@ require ('dotenv').config();
     });
 
     const mailOptions = {
-        from: process.env.EMAIL,
-        to:  req.body.email,
+      from: process.env.EMAIL,
+      to:  req.body.email,
         subject: `Sending this email to the assingment  ${req.body.name}: ${req.body.subject}`,
         html: `
         <p>Thank you for submitting the form. Here is a summary of your details:</p>
@@ -29,10 +29,12 @@ require ('dotenv').config();
         </ul>
         <p>Message: ${req.body.message}</p>
       `,
-        text: req.body.message
-
-
+      text: req.body.message
+      
+      
     };
+    // show alert message in Ui  if data is sent
+    res.status(201).json({message: "Email send"})
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
