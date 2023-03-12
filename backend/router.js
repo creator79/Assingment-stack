@@ -3,7 +3,6 @@ const nodeMailer = require('nodemailer');
  const  router = new express.Router();
 require ('dotenv').config();
 
-
  router.post("/user-form", (req, res) => {
 
         console.log(req.body);
@@ -16,21 +15,20 @@ require ('dotenv').config();
                     pass: process.env.PASSWORD,
         }
     });
-    if (!isValidPhoneNumber(phone)) {
-        return res.status(400).json({ message: 'Invalid phone number' });
-    }
-    
-    
-    function isValidPhoneNumber(phone) {
-            const phoneRegex = /^\+?(\d{1,3})\)?[-. ]?(\d{3})[-. ]?(\d{3})[-. ]?(\d{4})$/;
-            return phoneRegex.test(phone);
-    }
+
     const mailOptions = {
         from: process.env.EMAIL,
         to:  req.body.email,
         subject: `Sending this email to the assingment  ${req.body.name}: ${req.body.subject}`,
-        html: '<h1>Congratulation sucessfully email is send</h1>',
-        body: req.body.message,
+        html: `
+        <p>Thank you for submitting the form. Here is a summary of your details:</p>
+        <ul>
+          <li>Name: ${req.body.name}</li>
+          <li>Email: ${req.body.email}</li>
+          <li>Phone: ${req.body.phone}</li>
+        </ul>
+        <p>Message: ${req.body.message}</p>
+      `,
         text: req.body.message
 
 

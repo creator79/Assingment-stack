@@ -36,6 +36,7 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const  router =require("././router");
+require ('dotenv').config();
 
 app.use(express.json())
 app.use(cors())
