@@ -31,22 +31,21 @@ const UserForm = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
     })
-<<<<<<< HEAD
+
       .then((response) => {
         if (response.status === 200) {
           alert('Form submitted successfully');
         } else {
           alert('Something went wrong');
         }
-=======
-      .then((response) => response.json())
+      then((response) => response.json())
       .then((data) => {
         alert('Your Form is submitted');
->>>>>>> 77ca928731d3045c43579e0adfef248dcce2d1b0
       })
       .catch((error) => {
         alert('Something went wrong');
       });
+    });
   };
 
   return (
